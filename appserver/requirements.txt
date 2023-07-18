@@ -2,6 +2,9 @@ flask
 flask-sqlalchemy
 flask-login
 itsdangerous==2.0.1
+Jinja2
+Werkzeug
+Wtforms-html5
 pymysql
 gunicorn
 flake8
