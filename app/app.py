@@ -4,17 +4,19 @@ from logging.handlers import RotatingFileHandler
 from datetime import timedelta
 
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from jinja2 import Environment
 
-from database import init_db
 from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
+db = SQLAlchemy()
+
 # DB init
-init_db(app)
+db.init_app(app)
 
 login = LoginManager(app)
 login.login_view = 'login'
@@ -39,3 +41,6 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     
     app.logger.setLevel(logging.INFO)
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
