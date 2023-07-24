@@ -1,0 +1,6 @@
+  <a href="{{ url_for('move_user') }}">Link</a>
+
+      {% for employee in member %}
+        <li>名前: {{ employee.STAFFID }} メール: {{ employee.LNAME }}</li>
+    {% endfor %}
+

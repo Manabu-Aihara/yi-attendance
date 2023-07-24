@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+  <p>{{ message }}</p>
+  <ul>
+    {% for employee in member %}
+      <li>名前: {{ employee.STAFFID }} メール: {{ employee.LNAME }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

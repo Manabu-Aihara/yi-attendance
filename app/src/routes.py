@@ -6,9 +6,9 @@ from flask_login.utils import login_required
 from flask.helpers import url_for
 from werkzeug.urls import url_parse
 
-from app import app
-from forms import LoginForm
-from model.user_models import User, StaffLogin, Applied
+from src import app
+from src.forms import LoginForm
+from src.user_models import User, StaffLogin, Applied
 
 """***** ログイン後最初のページ *****"""
 

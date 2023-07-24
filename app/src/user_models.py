@@ -2,7 +2,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
-from app import db, app
+from src import db, app
 
 class User(db.Model):
     __tablename__ = "M_STAFFINFO"
@@ -34,12 +34,12 @@ class User(db.Model):
     HOUSE = db.Column(db.Integer, index=True, nullable=True)
     DISTANCE = db.Column(db.Float, index=True, nullable=True)
     REMARK = db.Column(db.String(100), index=True, nullable=True)
-    M_LOGGININFOs = db.relationship('StaffLoggin', backref='M_STAFFINFO', lazy='dynamic')  
-    M_RECORD_PAIDHOLIDAYs = db.relationship('RecordPaidHoliday', backref='M_STAFFINFO', lazy='dynamic')
-    D_COUNT_ATTENDANCEs = db.relationship('CountAttendance', backref='M_STAFFINFO', lazy='dynamic')
-    D_TIME_ATTENDANCEs = db.relationship('TimeAttendance', backref='M_STAFFINFO', lazy='dynamic')
-    D_COUNTER_FOR_TABLEs = db.relationship('CounterForTable', backref='M_STAFFINFO', lazy='dynamic')
-    M_SYSTEMINFOs = db.relationship('SystemInfo', backref='M_STAFFINFO', lazy='dynamic')    
+    M_LOGGININFOs = db.relationship('StaffLogin', backref='M_STAFFINFO', lazy='dynamic')  
+    # M_RECORD_PAIDHOLIDAYs = db.relationship('RecordPaidHoliday', backref='M_STAFFINFO', lazy='dynamic')
+    # D_COUNT_ATTENDANCEs = db.relationship('CountAttendance', backref='M_STAFFINFO', lazy='dynamic')
+    # D_TIME_ATTENDANCEs = db.relationship('TimeAttendance', backref='M_STAFFINFO', lazy='dynamic')
+    # D_COUNTER_FOR_TABLEs = db.relationship('CounterForTable', backref='M_STAFFINFO', lazy='dynamic')
+    # M_SYSTEMINFOs = db.relationship('SystemInfo', backref='M_STAFFINFO', lazy='dynamic')    
     
     def __init__(self, STAFFID):
         self.STAFFID = STAFFID
@@ -50,7 +50,7 @@ class StaffLogin(UserMixin, db.Model):
     STAFFID = db.Column(db.Integer, db.ForeignKey('M_STAFFINFO.STAFFID'), unique=True, index=True, nullable=False)
     PASSWORD_HASH = db.Column(db.String(128), index=True, nullable=True)
     ADMIN = db.Column(db.Boolean(), index=True, nullable=True)
-    shinseis = db.relationship('Shinsei', backref='M_LOGGININFO', lazy='dynamic')
+    # shinseis = db.relationship('Shinsei', backref='M_LOGGININFO', lazy='dynamic')
 
     def __init__(self, STAFFID, PASSWORD, ADMIN):
         self.STAFFID = STAFFID

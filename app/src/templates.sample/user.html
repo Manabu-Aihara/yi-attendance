@@ -1,0 +1,5 @@
+{% extends "layout.html" %}
+{% block content %}
+<p>USERページ</p>
+<a href="{{ url_for('index', msg='hello') }}">Index Page</a> <!-- views.pyのindex関数を実行するリンク -->
+{% endblock %}

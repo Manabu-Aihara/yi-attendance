@@ -1,4 +1,4 @@
-mysql/
+mysql/*/
 phpmyadmin/
 app/.env
 app/__pycache__/
@@ -6,3 +6,4 @@ app/bin/
 app/include/
 app/lib/
 app/lib64/
+docker-compose.yml
